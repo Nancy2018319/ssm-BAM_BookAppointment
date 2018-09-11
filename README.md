@@ -32,6 +32,6 @@
 
 预约图书成功后可在已预约列表里取消预约，同时限定用户在预约后5天内借走书籍，否则预约失效。
 
-![Image](https://github.com/Nancy2018319/ssm-BAM_BookAppointment/blob/master/src/main/resources/imgForGit/1.7.PNG)
+![Image](https://github.com/Nancy2018319/ssm-BAM_BookAppointment/blob/master/src/main/resources/imgForGit/1.71.PNG)
 
 
