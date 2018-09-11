@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="book.dao.IUserDao">
+    <insert id="insertUser" parameterType="User">
+        insert into bam.user(accountname,password,name,sex,phone,idnumber)values(#{accountname},#{password},#{name},#{sex},#{phone},#{idnumber})
+    </insert>
+    <delete id="deleteUser">
+        delete from bam.user where accountname=#{accountname}
+    </delete>
+    <update id="updateUserPwd" parameterType="User">
+        update bam.user set password=#{password} where accountname=#{accountname}
+    </update>
+    <update id="updateUserProfile" parameterType="User">
+        update bam.user set name=#{name},sex=#{sex},phone=#{phone} where accountname=#{accountname}
+    </update>
+    <select id="showUserProfile" resultType="User">
+        select name,sex,phone,idnumber from bam.user where accountname=#{accountname}
+    </select>
+    <select id="selectUserByAcname" resultType="User">
+        select * from bam.user where accountname = #{accountname}
+    </select>
+    <select id="selectAllUser" resultType="User">
+        select * from bam.user
+    </select>
+
+</mapper>

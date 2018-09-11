@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="book.dao.IBooksDao">
+    <insert id="insertBook" parameterType="Books">
+        insert into bam.books(book_name,book_type,book_price,book_publish,book_newtime,book_number,book_text)values (#{book_name},#{book_type},#{book_price},#{book_publish},#{book_newtime},#{book_number},#{book_text})
+    </insert>
+    <delete id="deleteBook">
+        delete from bam.books where book_name=#{xxx}
+    </delete>
+    <update id="updateBookProfile" parameterType="Books">
+        update bam.books set book_type=#{book_type},book_price=#{book_price},book_publish=#{book_publish},book_newtime=#{book_newtime},book_number=#{book_number},book_text=#{book_text} where book_name=#{book_name}
+    </update>
+    <select id="queryBookById" parameterType="int" resultType="Books" >
+        <!-- 具体的sql -->
+        SELECT
+        id,book_name,book_type,book_price,book_publish,book_newtime,book_number,book_text
+        FROM
+        bam.books
+        WHERE
+        id = #{id}
+    </select>
+    <select id="selectAllBook" resultType="Books">
+        select id,book_name,book_type,book_price,book_publish,book_newtime,book_number,book_text from bam.books
+    </select>
+    <select id="selectBookByName" resultType="Books">
+        select id,book_name,book_type,book_price,book_publish,book_newtime,book_number,book_text from bam.books where book_name like #{xxx} '%'
+    </select>
+    <update id="reduceNumber">
+		UPDATE bam.books
+		SET book_number = book_number - 1
+		WHERE
+			id = #{id}
+		AND book_number > 0
+	</update>
+    <update id="addNumber">
+		UPDATE bam.books
+		SET book_number = book_number + 1
+		WHERE
+			id = #{id}
+		AND book_number > 0
+	</update>
+</mapper>

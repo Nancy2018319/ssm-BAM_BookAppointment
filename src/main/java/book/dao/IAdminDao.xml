@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="book.dao.IAdminDao">
+    <insert id="insertAdmin" parameterType="Admin">
+        insert into bam.admin(accountname,password,name,sex,phone)values (#{accountname},#{password},#{name},#{sex},#{phone})
+    </insert>
+    <delete id="deleteAdmin">
+        delete from bam.admin where accountname=#{xxx}
+    </delete>
+    <update id="updateAdminPwd" parameterType="Admin">
+        update bam.admin set password=#{password} where accountname=#{accountname}
+    </update>
+    <update id="updateAdminProfile" parameterType="Admin">
+        update bam.admin set name=#{name},sex=#{sex},phone=#{phone} where accountname=#{accountname}
+    </update>
+    <select id="showAdminProfile" resultType="Admin">
+        select name,sex,phone from bam.admin where accountname=#{accountname}
+    </select>
+    <select id="selectAllAdmin" resultType="Admin">
+        select accountname,name,sex,phone from bam.admin
+    </select>
+    <select id="selectAdminByName" resultType="Admin">
+        select accountname,name,sex,phone from bam.admin where name like #{xxx} '%'
+    </select>
+    <select id="selectAdminByAcname" resultType="Admin">
+        select * from bam.admin where accountname = #{accountname}
+    </select>
+</mapper>
+    
