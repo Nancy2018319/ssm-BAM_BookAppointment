@@ -59,7 +59,7 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <center>msg</center>
+            <center>${msg}</center>
             <br>
             <br>
             <br>
